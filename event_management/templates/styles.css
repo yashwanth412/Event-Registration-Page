@@ -1,0 +1,41 @@
+/* CSS for the poster container */
+    .poster-container {
+      max-width: 100%;
+      max-height: 80vh; /* Adjust as needed */
+      overflow: hidden;
+      position: relative;
+    }
+    
+    /* CSS for the poster image */
+    .poster-container img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: opacity 1s ease-in-out;
+    }
+    
+    /* CSS for the photo container */
+    .FooterPhoto {
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0; /* Add padding as needed */
+    }
+    
+    /* CSS for individual photo and description boxes */
+    .photo-box {
+      display: inline-block;
+      margin-right: 20px; /* Spacing between photo boxes */
+      vertical-align: top;
+      max-width: 100%; /* Adjust as needed */
+    }
+    
+    .photo-box img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .description-box {
+      max-width: 100%; /* Adjust as needed */
+      margin-top: 5px; /* Spacing between photo and description */
+    }

@@ -1,0 +1,92 @@
+<html><link rel="stylesheet" type="text/css" href="{% static 'event_management/styles.css' %}">
+<script src="{% static 'event_management/script.js' %}"></script>
+
+
+  {% block content %} 
+ 
+  <header>
+    <div class = "HeaderNavigationItem">
+      <nav>
+        <ul>
+          {% for nav_item in nav_items %}
+            {% if nav_item.visible %}
+              <li class="nav-link" data-visible="true"><a href="#{{ nav_item.name|lower }}">{{ nav_item.name }}</a></li>
+            {% else %}
+              <li class="nav-link" data-visible="false"><a href="#{{ nav_item.name|lower }}">{{ nav_item.name }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="poster-container">
+    {% if poster %}
+      <img src="{{ poster.image.url }}" class="img-fluid" alt="{{poster}} Image">
+    {% endif %}
+  </div>
+
+  <div class="event" >
+    <h2>Events</h2>
+      <ul>
+      {% for event in events %}
+        <li>
+          <h3>{{ event.name }}</h3>
+          <p>{{ event.description }}</p>
+          <img src="{{ event.image.url }}" class="img-fluid" alt="{{ event.name }} Image">
+          <a href="{{ event.registration_link }}" class="btn btn-primary">Register</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class = "workshop" >
+     <h2>Workshops</h2>
+       <ul>
+      {% for workshop in workshops %}
+        <li>
+          <h3>{{ workshop.name }}</h3>
+          <p>{{ workshop.description }}</p>
+          <img src="{{ workshop.image.url }}" alt="{{ workshop.name }} Image">
+          <a href="{{ workshop.registration_link }}" class="btn btn-primary">Register</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="FooterPhoto">
+    <h2>Events Photos</h2>
+      {% for photo in photos %}
+          <img src="{{ photo.image.url }}" alt="{{ photo.description }}">
+          <p>{{ photo.description }}</p>
+      {% endfor %}
+  </div>
+
+  <div id="staff"> 
+      <h2>Staff Members</h2>
+      <ul>
+        {% for staff_member in staff_members %}
+          <li>
+            <h3>{{ staff_member.name }}</h3>
+            <p>Phone: {{ staff_member.phone }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+  </div>
+
+  <div id="volunteers"> 
+      <h2>Volunteers</h2>
+      <ul>
+        {% for volunteer in volunteers %}
+          <li>
+            <h3>{{ volunteer.name }}</h3>
+            <p>Phone: {{ volunteer.phone }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+  </div>
+
+  <h3>Owner :- p.yashwanth</h3>
+
+  {% endblock %}
+</html>
